@@ -1,0 +1,59 @@
+.body__homePage {
+    background-image: url('../Icon/FondHomePage.jpg'); /* Remplace par le chemin vers ton image */
+    background-size: cover; /* Cette propriété fait en sorte que l'image couvre tout l'écran */
+    background-position: center; /* Centre l'image */
+    background-attachment: fixed; /* L'image reste fixe lors du défilement */
+    height: 100%; /* Assure que le fond couvre toute la page */
+    margin: 0; /* Pour supprimer les marges par défaut du body */
+    padding: 0; /* Pour supprimer les padding par défaut du body */
+    justify-content: center;
+}
+.HomePage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;     
+        height: 100vh;           
+    
+    &__welcome{
+        color: blue;
+        padding-top: 100px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+    &__welcome-text{
+        margin: 0;
+    }
+
+    &__reservation{
+        margin: 40px;
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        text-decoration: none;
+        color: blue;
+        font-weight: 700;
+    }
+
+    &__description{
+        color: darkblue;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__Actuality {
+        background-color: rgba(255, 255, 255, 0.20);
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+        width: 70%;  /* Limite la largeur à 80% de son parent */
+        height: 100%;  /* Prend toute la hauteur disponible */
+        padding: 20px;  /* Ajoute de l'espace intérieur */
+        box-sizing: border-box;  /* Inclut le padding dans la largeur et la hauteur */
+    }
+    
+}
