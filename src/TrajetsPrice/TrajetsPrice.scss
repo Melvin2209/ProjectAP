@@ -1,0 +1,28 @@
+.TrajetsPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    height: 100vh;           
+
+    &__title{
+        color: blue;
+        padding-top: 100px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+    &__logo{
+        height: 50px;
+        width: 50px;
+    }
+
+    &__table{
+        border: solid 3px blue;
+    }
+
+    &__table-cell{
+        color:blue;
+        padding: 10px;
+        border: solid 1px blue;
+    }
+}

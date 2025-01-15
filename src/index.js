@@ -6,6 +6,7 @@ import Navbar from './navbar/navbar.js';
 import HomePage from './HomePage/HomePage.js';
 import Login from './login/login.js';
 import Inscription from './inscription/inscription.js';  // Importation de la page d'inscription
+import TrajetsPrice from './TrajetsPrice/TrajetsPrice.js'
 
 function App() {
   const location = useLocation();
@@ -14,13 +15,16 @@ function App() {
     // Appliquer les styles spécifiques à la page active
     if (location.pathname === '/') {
       document.body.classList.add('body__homePage');
-      document.body.classList.remove('body__loginPage', 'body__inscriptionPage');
+      document.body.classList.remove('body__otherPage');
     } else if (location.pathname === '/login') {
-      document.body.classList.add('body__loginPage');
-      document.body.classList.remove('body__homePage', 'body__inscriptionPage');
+      document.body.classList.add('body__otherPage');
+      document.body.classList.remove('body__homePage');
     } else if (location.pathname === '/inscription') {
-      document.body.classList.add('body__inscriptionPage');
-      document.body.classList.remove('body__homePage', 'body__loginPage');
+      document.body.classList.add('body__otherPage');
+      document.body.classList.remove('body__homePage');
+    } else if (location.pathname === '/TrajetsPrice') {
+      document.body.classList.add('body__otherPage');
+      document.body.classList.remove('body__homePage');
     }
   }, [location]);
 
@@ -31,6 +35,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/TrajetsPrice" element={<TrajetsPrice />} />
       </Routes>
     </div>
   );

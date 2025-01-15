@@ -11,9 +11,9 @@ function Navbar() {
         <div className="navbar__right">
           <ul className="navbar__liste">
             <Link className="navbar__link" to="/">Accueil</Link>
-            <Link className="navbar__link" to="/trajets-prix">Trajets & prix</Link>
+            <Link className="navbar__link" to="/TrajetsPrice">Trajets & prix</Link>
             <Link className="navbar__link" to="/reservations">Réservations</Link>
-            <Link className="navbar__link" to="/offres">Offres</Link>
+            <Link className="navbar__link" to="/MyAccount">Mon compte</Link>
           </ul>
         </div>
         <Link to="/login"><img className="navbar__logo" src={connectionIcon} alt="Connexion"/></Link>
