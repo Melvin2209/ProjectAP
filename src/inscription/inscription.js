@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importer useNavigate
 import './inscription.scss';
 
 function Inscription() {
@@ -12,6 +13,7 @@ function Inscription() {
 
   const [error, setError] = useState(''); // Ajouter un état pour l'erreur
   const [successMessage, setSuccessMessage] = useState(''); // Message de succès
+  const navigate = useNavigate(); // Initialiser navigate pour la redirection
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +44,8 @@ function Inscription() {
       const result = await response.json();
       if (result.success) {
         setSuccessMessage(result.message); // Affichage du message de succès
+        // Redirection avec un état qui indique que l'inscription a réussi
+        navigate('/login', { state: { success: 'Inscription réussie! Vous pouvez maintenant vous connecter.' } });
       } else {
         setError(result.message); // Affichage de l'erreur
       }

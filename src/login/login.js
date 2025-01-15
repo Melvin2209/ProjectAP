@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.scss";
 import ancreImage from "../Icon/ancre-de-bateau.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const location = useLocation(); // Utiliser useLocation pour récupérer l'état passé
+
+  // Afficher le message de succès si l'état est présent
+  useEffect(() => {
+    if (location.state && location.state.success) {
+      setMessage(location.state.success); // Affichage du message passé lors de la redirection
+    }
+  }, [location]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +47,7 @@ function Login() {
       <h1 className="login-page__welcome">Bienvenue chez MarieTeam</h1>
       <div className="login-page__connexion">
         <h1>Connexion</h1>
+        {message && <p className="login-page__message">{message}</p>} {/* Affichage du message ici */}
         <form className="login-page__formulaire" onSubmit={handleSubmit}>
           <div className="login-page__formulaire-group">
             <label className="login-page__formulaire-group--text" htmlFor="email">Email :</label>
@@ -67,7 +76,6 @@ function Login() {
           <button className="login-page__button" type="submit">Se connecter</button>
           <Link className="login-page__button" to="/Inscription">Inscription</Link>
         </form>
-        {message && <p className="login-page__message">{message}</p>}
       </div>
     </div>
   );
