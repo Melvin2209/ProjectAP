@@ -11,13 +11,14 @@ function Inscription() {
   });
 
   const [error, setError] = useState(''); // Ajouter un état pour l'erreur
+  const [successMessage, setSuccessMessage] = useState(''); // Message de succès
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Vérification de la correspondance des mots de passe
@@ -30,7 +31,23 @@ function Inscription() {
     // Si les mots de passe correspondent, on peut soumettre le formulaire
     setError(''); // Réinitialiser l'erreur si tout est ok
     console.log(formData); // Affichage des données du formulaire
-    // Validation ou soumission du formulaire ici
+
+    try {
+      const response = await fetch('http://localhost/Marieteam/inscription.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSuccessMessage(result.message); // Affichage du message de succès
+      } else {
+        setError(result.message); // Affichage de l'erreur
+      }
+    } catch (error) {
+      setError('Une erreur est survenue. Veuillez réessayer.');
+    }
   };
 
   return (
@@ -104,6 +121,7 @@ function Inscription() {
 
         {/* Affichage de l'erreur si les mots de passe ne correspondent pas */}
         {error && <p className="inscription__error-message">{error}</p>}
+        {successMessage && <p className="inscription__success-message">{successMessage}</p>}
 
         <button className="inscription__button" type="submit">S'inscrire</button>
       </form>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 14 jan. 2025 à 10:10
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 7.4.29
+-- Généré le : mer. 15 jan. 2025 à 11:07
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `bateau` (
   `nom` varchar(50) DEFAULT NULL,
   `longueur` double DEFAULT NULL,
   `largeur` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `bateau`
@@ -53,7 +53,7 @@ CREATE TABLE `bateaufret` (
   `Id_Bateau` int(11) NOT NULL,
   `capacite_chargement` double DEFAULT NULL,
   `type_Fret` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `bateauvoyageur` (
   `Id_Bateau` int(11) NOT NULL,
   `vitesse` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `bateauvoyageur`
@@ -85,7 +85,7 @@ INSERT INTO `bateauvoyageur` (`Id_Bateau`, `vitesse`, `image`) VALUES
 CREATE TABLE `categorie` (
   `lettre` varchar(50) NOT NULL,
   `libelle` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -106,7 +106,7 @@ CREATE TABLE `contenir` (
   `lettre` varchar(50) NOT NULL,
   `Id_Bateau` int(11) NOT NULL,
   `capaciteMax` smallint(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `contenir`
@@ -134,7 +134,7 @@ CREATE TABLE `enregistrer` (
   `Id_Type` int(11) NOT NULL,
   `Id_Reservation` int(11) NOT NULL,
   `quantite` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ CREATE TABLE `enregistrer` (
 CREATE TABLE `equipement` (
   `id_Equipement` int(11) NOT NULL,
   `libelle_Equip` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `equipement`
@@ -169,16 +169,16 @@ CREATE TABLE `liaison` (
   `Id_Port` int(11) NOT NULL,
   `Id_Port_1` int(11) NOT NULL,
   `Id_Secteur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `liaison`
 --
 
 INSERT INTO `liaison` (`code`, `distance`, `Id_Port`, `Id_Port_1`, `Id_Secteur`) VALUES
-('LIA001', '8.30', 1, 2, 1),
-('LIA002', '8.00', 1, 3, 1),
-('LIA003', '7.70', 6, 7, 3);
+('LIA001', 8.30, 1, 2, 1),
+('LIA002', 8.00, 1, 3, 1),
+('LIA003', 7.70, 6, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ CREATE TABLE `periode` (
   `Id_Periode` int(11) NOT NULL,
   `dateDeb` date DEFAULT NULL,
   `dateFin` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `periode`
@@ -210,7 +210,7 @@ INSERT INTO `periode` (`Id_Periode`, `dateDeb`, `dateFin`) VALUES
 CREATE TABLE `port` (
   `Id_Port` int(11) NOT NULL,
   `nom` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `port`
@@ -234,7 +234,7 @@ INSERT INTO `port` (`Id_Port`, `nom`) VALUES
 CREATE TABLE `proposer` (
   `Id_Bateau` int(11) NOT NULL,
   `id_Equipement` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `proposer`
@@ -256,7 +256,7 @@ CREATE TABLE `reservation` (
   `Id_Reservation` int(11) NOT NULL,
   `Id_Utilisateur` int(11) NOT NULL,
   `num` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,7 @@ CREATE TABLE `reservation` (
 CREATE TABLE `secteur` (
   `Id_Secteur` int(11) NOT NULL,
   `nom` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `secteur`
@@ -290,16 +290,16 @@ CREATE TABLE `tarifer` (
   `Id_Type` int(11) NOT NULL,
   `code` varchar(50) NOT NULL,
   `tarif` decimal(15,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `tarifer`
 --
 
 INSERT INTO `tarifer` (`Id_Periode`, `lettre`, `Id_Type`, `code`, `tarif`) VALUES
-(1, 'A', 1, 'LIA001', '18.00'),
-(2, 'B', 1, 'LIA002', '95.00'),
-(3, 'C', 2, 'LIA003', '226.00');
+(1, 'A', 1, 'LIA001', 18.00),
+(2, 'B', 1, 'LIA002', 95.00),
+(3, 'C', 2, 'LIA003', 226.00);
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,7 @@ CREATE TABLE `traversee` (
   `heure` time DEFAULT NULL,
   `code` varchar(50) NOT NULL,
   `Id_Bateau` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `traversee`
@@ -334,7 +334,7 @@ CREATE TABLE `type` (
   `lettre` varchar(50) NOT NULL,
   `Id_Type` int(11) NOT NULL,
   `libelle` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `type`
@@ -362,7 +362,7 @@ CREATE TABLE `utilisateur` (
   `prenom` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `mdp` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -370,7 +370,8 @@ CREATE TABLE `utilisateur` (
 
 INSERT INTO `utilisateur` (`Id_Utilisateur`, `nom`, `prenom`, `email`, `mdp`) VALUES
 (1, 'Doe', 'John', 'john.doe@example.com', 'password123'),
-(2, 'Smith', 'Anna', 'anna.smith@example.com', 'secure456');
+(2, 'Smith', 'Anna', 'anna.smith@example.com', 'secure456'),
+(3, 'DUpuis', 'Melvin', 'dsmelvin22@gmail.com', 'dza');
 
 --
 -- Index pour les tables déchargées
@@ -491,6 +492,16 @@ ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`Id_Utilisateur`);
 
 --
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `Id_Utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -539,7 +550,7 @@ ALTER TABLE `proposer`
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`Id_Utilisateur`) REFERENCES `utilisateur` (`Id_Utilisateur`),
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`Id_Utilisateur`) REFERENCES `utilisateur` (`Id_Utilisateur`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`num`) REFERENCES `traversee` (`num`);
 
 --

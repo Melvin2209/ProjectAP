@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import "./Login.scss";
 import ancreImage from "../Icon/ancre-de-bateau.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      console.log(email,password)
       const response = await fetch('http://localhost/Marieteam/login.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
-    });
-    
+      });
 
       const result = await response.json();
 
       if (result.success) {
-        setMessage(result.message); // Connexion réussie
+        setMessage(result.message); 
+        localStorage.setItem('userId', result.userId); // Remplacer 'userId' par l'ID ou le token que tu veux stocker
+        navigate('/'); // Redirige vers la page d'accueil
       } else {
-        setMessage(result.message); // Erreur d'identifiants ou autre
+        setMessage(result.message); // Affiche le message d'erreur si échec
       }
     } catch (error) {
       setMessage('Une erreur est survenue. Veuillez réessayer.');
