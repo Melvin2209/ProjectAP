@@ -1,0 +1,67 @@
+.my-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  
+    &__title {
+      margin: 10px;
+      font-size: 24px;
+      color: darkblue;
+      font-weight: bold;
+    }
+  
+    &__subtitle {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border: 3px solid darkblue;
+      border-radius: 10px;
+      padding: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    &__button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      width: 200px;
+    }
+  
+    &__button:hover {
+      background-color: #0056b3;
+      text-decoration: underline;
+    }
+  
+    &__button--logout {
+      background-color: #dc3545;
+    }
+  
+    &__button--logout:hover {
+      background-color: #a71d2a;
+    }
+
+    &__button--admin {
+        background-color: darkorange;
+      
+        &:hover {
+          background-color: orangered;
+        }
+      }  
+  }
+  

@@ -1,0 +1,49 @@
+.reservations-page {
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    color: darkblue;
+    margin-bottom: 20px;
+  }
+
+  .reservations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .reservation-card {
+    background-color: #f0f4ff;
+    border: 2px solid #007bff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c82333;
+    }
+  }
+}

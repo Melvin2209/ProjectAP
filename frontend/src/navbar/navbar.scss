@@ -1,0 +1,80 @@
+.navbar{
+    z-index: 10;
+    position: absolute;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: blue;
+    height: 85px;
+    // @media screen and (max-width: 768px) {
+    //     margin: 0;
+    //   }
+
+      &__link {
+        display: inline-block; /* Nécessaire pour ajouter des marges/paddings et un fond */
+        padding: 8px 30px; /* Ajuste selon l'espacement désiré */
+        margin: 5px; /* Espacement entre les liens */
+        text-decoration: none; /* Supprime le soulignement */
+        color: blue; /* Couleur du texte */
+        background-color: #007bff; /* Couleur de fond */
+        border-radius: 15px; /* Arrondit les coins */
+        transition: all 0.3s ease; /* Animation pour les effets */
+        border: 2px solid blue; /* Ajoute une bordure blanche */
+      }
+    
+      &__link:hover {
+        background-color: #0056b3; /* Change la couleur au survol */
+        color: #f8f9fa; /* Change la couleur du texte au survol */
+        text-decoration: underline;
+
+      }
+
+    &__logo{
+        height: 50px;
+
+        width: 50px;
+    }
+    &__liste{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 40px;
+        padding-left: 40px;
+
+        // @media screen and (max-width: 768px) {
+        //     display: flex;
+        //     flex-direction: column;
+        //     align-items: center;
+        //   }
+    }
+
+    &__right{
+        width: 100%;
+        // @media screen and (max-width: 768px) {
+        //     position: absolute;
+        //     background-color: rgba(255, 255, 255, 0.20);
+        //     backdrop-filter: blur(8px);
+        //     top: 0;
+        //     left: 0;
+        //     display: flex;
+        //     width: 100%;
+        //     height: 100%;
+        //     justify-content: center;
+        //     align-items: center;
+        //   }
+    }
+
+    &__burger-logo{
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 35px;
+        // @media screen and (max-width: 768px) {
+        //     display: block;
+        //   }
+    }
+}

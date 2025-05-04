@@ -1,0 +1,63 @@
+.inscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    &__form-group{
+        margin-bottom: 15px;
+    }
+
+    &__label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+    &__input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      &__button {
+        padding: 10px 15px; /* Espacement à l'intérieur du bouton */
+        font-size: 16px; /* Taille du texte */
+        background-color: #007bff; /* Couleur de fond du bouton (ici bleu) */
+        color: white; /* Couleur du texte du bouton */
+        border: none; /* Enlève la bordure par défaut */
+        border-radius: 50px;
+        cursor: pointer; /* Change le curseur pour montrer que c'est cliquable */
+        transition: background-color 0.3s ease; /* Transition fluide au survol */
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+
+      }
+      
+      &__button:hover {
+        background-color: #0056b3; /* Changement de couleur au survol (ici bleu foncé) */
+        text-decoration: underline;
+    }
+    &__text {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+    &__error-message{
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+  }
+  
+
+  
