@@ -11,6 +11,7 @@ import MyAccount from "./myAccount/myAccount.js"; // ✅ import de la nouvelle p
 import Reservations from "./Reservations/Reservations"; // ← si c’est dans /reservations/
 import CreateReservation from './CreateReservation/CreateReservation.js'; // ✅ Import de la nouvelle page
 import AdminReservation from './adminReservation/AdminReservation';
+import AdminStats from './AdminStats/AdminStats';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/creer-reservation" element={<CreateReservation />} /> {/* ✅ Nouvelle route */}
         <Route path="/admin-reservations" element={<AdminReservation />} /> {/* ✅ ICI */}
+        <Route path="/admin-stats" element={<AdminStats />} />
       </Routes>
     </div>
   );

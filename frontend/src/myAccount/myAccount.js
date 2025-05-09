@@ -45,6 +45,15 @@ function MyAccount() {
             Gérer les réservations (admin)
           </button>
         )}
+        {isAdmin && (
+  <button
+    className="my-account__button my-account__button--admin"
+    onClick={() => navigate('/admin-stats')}
+  >
+    Statistiques des réservations
+  </button>
+)}
+
 
         <button className="my-account__button my-account__button--logout" onClick={handleLogout}>
           Se déconnecter
